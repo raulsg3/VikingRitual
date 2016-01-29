@@ -4,7 +4,13 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;   
-	private int age = 0;  
+	[SerializeField]
+	int age = 0;
+	float fertilityValue = 10f;
+	float rainValue = 10f;
+	float providenceValue = 10f;
+	float fadeValue = 10f;
+
 
 	//Awake is always called before any Start functions
 	void Awake()

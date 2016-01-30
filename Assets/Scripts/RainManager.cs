@@ -13,11 +13,14 @@ public class RainManager : MonoBehaviour
 
     private bool bStartAnim;
     private bool bJummping;
+    private float fRainSliderValue = 0.0f;
+    private string strScene = "RainScene";
     // Use this for initialization
     void Start()
     {
         bStartAnim = false;
         bJummping = false;
+        fRainSliderValue = GameManager.instance.GetRain();
     }
 
     // Update is called once per frame
@@ -44,6 +47,32 @@ public class RainManager : MonoBehaviour
     {
 
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    public void ReStart()
+    {
+        GameManager.instance.SetAttributeValue(fRainSliderValue, GameManager.Scenes.RainScene);
+        GameManager.instance.Loadscene(strScene);
+    }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    public void ExitScene()
+    {
+        GameManager.instance.SetAttributeValue(fRainSliderValue, GameManager.Scenes.RainScene);
+        GameManager.instance.LoadMainScene();
+    }
 
+    /// <summary>
+    /// Asignamos el valor obtenido 
+    /// en caso de victoria +2 
+    /// en caso de derrota -1
+    /// </summary>
+    /// <param name="value"></param>
+    public void setRainSliderValue(float value)
+    {
+        fRainSliderValue = fRainSliderValue + value;
+    }
 }

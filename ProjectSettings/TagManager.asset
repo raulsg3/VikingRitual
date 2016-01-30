@@ -9,6 +9,7 @@ TagManager:
   - FateProjectile
   - obstacle
   - Ground
+  - Meta
   - ProvidenceSpawnPoints
   layers:
   - Default

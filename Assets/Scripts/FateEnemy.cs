@@ -13,5 +13,14 @@ public class FateEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
-	}
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "FateProjectile")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 }

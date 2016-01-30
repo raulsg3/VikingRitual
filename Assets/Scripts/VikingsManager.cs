@@ -11,7 +11,6 @@ public class VikingsManager : MonoBehaviour {
 		StartCoroutine ("RefreshVikingsAlongGame");
 	}
 	
-
 	void RefreshVikings(){
 		float pointsByAttributes = GameManager.instance.GetFade () + GameManager.instance.GetFertility() + GameManager.instance.GetProvidence () + GameManager.instance.GetRain ();
 		//int numbOfVikings = ExtensionMethods.Remap

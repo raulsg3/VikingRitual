@@ -395,6 +395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c741444bc99ba4b9dd00116a6e3ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitTime: 2
+  totalSuccess: 10
   spawnPointList: {fileID: 1263333286}
   ship: {fileID: 677647258}
   enemy: {fileID: 159804, guid: eeaff90a7e279834dbd5944d9f26edc8, type: 2}

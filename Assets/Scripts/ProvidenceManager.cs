@@ -15,7 +15,7 @@ public class ProvidenceManager : MonoBehaviour
     private List<Transform> spawnPoints = new List<Transform>();
 
     // Fish prefab
-    public GameObject fish;
+    public Rigidbody fish;
 
     // List of enemies
     private List<ProvidenceFish> fishes = new List<ProvidenceFish>();
@@ -53,9 +53,11 @@ public class ProvidenceManager : MonoBehaviour
             Transform rndSpawnPoint = spawnPoints[rndIndex];
 
             // Create the new fish in that point
-            GameObject newFish = Instantiate<GameObject>(fish);
+            Rigidbody newFish = Instantiate<Rigidbody>(fish);
             newFish.transform.position = rndSpawnPoint.position + rndSpawnPoint.forward * 2;
             newFish.transform.forward = rndSpawnPoint.forward;
+
+            newFish.velocity = newFish.transform.forward * 5.0f;
         }
     }
 

@@ -4,7 +4,6 @@ using System.Collections;
 public class AudioManager : MonoBehaviour {
 
 	public static AudioManager audioManagerInstance = null;   
-	public AudioClip[] clips;
 	public AudioSource audioSource;
 
 	void Awake()
@@ -30,6 +29,10 @@ public class AudioManager : MonoBehaviour {
 	void Update () {
 	
 	}
+	public void PlaySound(AudioClip audioClip){
 
+		audioSource.PlayOneShot (audioClip);
+
+	}
 
 }

@@ -5,6 +5,7 @@ public class AudioManager : MonoBehaviour {
 
 	public static AudioManager audioManagerInstance = null;   
 	public AudioSource audioSource;
+	public AudioSource audioAmbient;
 
 	void Awake()
 	{
@@ -21,7 +22,7 @@ public class AudioManager : MonoBehaviour {
 
 	}
 	void Start(){
-		audioSource = GetComponent<AudioSource> () as AudioSource;
+		//audioSource = GetComponent<AudioSource> () as AudioSource;
 
 
 	}

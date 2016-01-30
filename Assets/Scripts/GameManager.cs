@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 	public Slider providenceSlider;
 	public Slider fertilitySlider;
 	public Slider fadeSlider;
-
+	public float maxValuesForAtributes = 10f;
 
 
 	[SerializeField]
@@ -62,20 +62,29 @@ public class GameManager : MonoBehaviour {
 		switch(newScene)
 		{
 		case Scenes.FertilityScene:
-			fertilityValue = value;
-			fertilitySlider.value = value;
+			if (fertilitySlider.value + value <= maxValuesForAtributes) {
+				fertilityValue += value;
+				fertilitySlider.value = fertilityValue;
+
+			}
 			break;
 		case Scenes.FadeScene:
-			fadeValue = value;
-			fadeSlider.value = value;
+			if (fadeSlider.value + value <= maxValuesForAtributes) {
+				fadeValue += value;
+				fadeSlider.value = fadeValue;
+			}
 			break;
 		case Scenes.ProvidenceScene:
-			providenceValue = value;
-			providenceSlider.value = value;
+			if (providenceSlider.value + value <= maxValuesForAtributes) {
+				providenceValue += value;
+				providenceSlider.value += providenceValue;
+			}
 			break;
 		case Scenes.RainScene:
-			rainValue = value;
-			rainSlider.value = value;
+			if (rainSlider.value + value <= maxValuesForAtributes) {
+				rainValue += value;
+				rainSlider.value += rainValue;
+			}
 			break;
 		}
 

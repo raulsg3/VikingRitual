@@ -8,10 +8,14 @@ public class FertilityManager : MonoBehaviour {
 	int index;  // index of the player in the array 
 	int round;
 	bool status;
+	bool oneFail;
 
 	public Button buttonA;
 	public Button buttonB;
 	public Button buttonC;
+
+	public Button buttonExit;
+	public Button buttonRetry;
 
 	public AudioClip audioA;
 	public AudioClip audioB;
@@ -26,9 +30,9 @@ public class FertilityManager : MonoBehaviour {
 	public Transform spawnPositionB;
 	public Transform spawnPositionC;
 	public Transform spawnPositionTitle;
+	public Transform spawnOneFail;
 
 	AudioManager audioManager;
-
 
 	void Start () {
 		// Initializate
@@ -36,14 +40,21 @@ public class FertilityManager : MonoBehaviour {
 		buttonB = GetComponent<Button>();
 		buttonC = GetComponent<Button>();
 
+		buttonExit = GetComponent<Button>();
+		buttonRetry = GetComponent<Button>();
+
 		round = 1;
 		size = 0; 
 		index = 0; 
 		addRandom(); //initializate array
 		status = false; // firts cpu time
+		oneFail = false; // User can fail 2 times
 
 		audioManager = AudioManager.audioManagerInstance;
 		audioManager.PlaySound(audioBackground);
+
+		buttonExit.interactable = false;
+		buttonRetry.interactable = false;
 	}
 
 
@@ -114,15 +125,21 @@ public class FertilityManager : MonoBehaviour {
 	public void endGood(){
 		//TODO El usuario Gano
 		audioManager.PlaySound (audioVictoria);
-		GameManager.instance.SetAttributeValue (2f, GameManager.Scenes.FertilityScene);
+		GameManager.instance.SetAttributeValue (1f, GameManager.Scenes.FertilityScene);
 		activeMenu ();
 		Debug.Log ("VICTORIA");
 	}
 	public void endFail(){
 		//TODO El usuario a fallado el boton a presionar
 		audioManager.PlaySound (audioDerrota);
-		activeMenu ();
-		Debug.Log ("DERROTA");
+		if (oneFail) {
+			GameManager.instance.SetAttributeValue (-2f, GameManager.Scenes.FertilityScene);
+			activeMenu ();
+			Debug.Log ("DERROTA");
+		} else {
+			Instantiate (fxPrefab, spawnOneFail.position, spawnOneFail.rotation);
+			oneFail = true;
+		}
 	}
 
 	// onClicks
@@ -157,7 +174,15 @@ public class FertilityManager : MonoBehaviour {
 
 	// ACTIVE MENU
 	public void activeMenu(){
-		// retryButton.enabled = true;
-		// exitButton.enabled = true;
+		buttonExit.gameObject.SetActive (true);
+		buttonRetry.gameObject.SetActive (true);
+	}
+	public void OnButtonRetry() {
+		//audioManager.StopBGM ();
+		GameManager.instance.Loadscene ("FertilityScene");
+	}
+	public void OnButtonExit() {
+		//audioManager.StopBGM ();
+		GameManager.instance.LoadMainScene ();
 	}
 }

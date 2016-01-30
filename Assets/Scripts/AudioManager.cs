@@ -7,6 +7,9 @@ public class AudioManager : MonoBehaviour {
 	public AudioSource audioSource;
 	public AudioSource audioAmbient;
 	public AudioClip ambientSound;
+	public AudioSource bgmSound;
+
+	private AudioSource[] allAudioSources;
 
 	void Awake()
 	{
@@ -22,22 +25,25 @@ public class AudioManager : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 
 	}
+
 	void Start(){
 		//audioSource = GetComponent<AudioSource> () as AudioSource;
 
-
 	}
+
 	// Update is called once per frame
 	void Update () {
 		
-	
 	}
+
 	public void PlaySound(AudioClip audioClip){
-
 		audioSource.PlayOneShot (audioClip);
-
 	}
-
-
+	public void PlayBGM(){
+		//bgmSound.PlayOneShot (audioClip);
+	}
+	public void StopBGM(){
+		//bgmSound.Stop ();
+	}
 
 }

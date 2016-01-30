@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Meta
   - ProvidenceSpawnPoints
+  - ProvidenceFish
   layers:
   - Default
   - TransparentFX

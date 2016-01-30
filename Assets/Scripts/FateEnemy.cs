@@ -3,11 +3,14 @@ using System.Collections;
 
 public class FateEnemy : MonoBehaviour {
 
+    // Gameplay variables
     public float speed = 2.0f;
+
+    public FateManager fateManager;
     
     // Use this for initialization
     void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
@@ -20,6 +23,7 @@ public class FateEnemy : MonoBehaviour {
         if (collision.gameObject.tag == "FateProjectile")
         {
             Destroy(this.gameObject);
+            fateManager.enemyDestroyed();
         }
     }
 

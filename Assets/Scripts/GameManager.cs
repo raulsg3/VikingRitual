@@ -7,6 +7,15 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;   
+	public enum Scenes{MainScene, FertilityScene, RainScene, ProvidenceScene, FadeScene}
+	Scenes currentScene;
+	public Slider rainSlider;
+	public Slider providenceSlider;
+	public Slider fertilitySlider;
+	public Slider fadeSlider;
+
+
+
 	[SerializeField]
 	int age = 0;
 	float fertilityValue = 10f;

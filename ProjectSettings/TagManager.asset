@@ -9,6 +9,7 @@ TagManager:
   - FateProjectile
   - obstacle
   - Ground
+  - Meta
   layers:
   - Default
   - TransparentFX

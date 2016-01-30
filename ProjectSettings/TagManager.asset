@@ -11,6 +11,8 @@ TagManager:
   - Ground
   - Meta
   - ProvidenceSpawnPoints
+  - RainManager
+  - MoebiusStrip
   layers:
   - Default
   - TransparentFX

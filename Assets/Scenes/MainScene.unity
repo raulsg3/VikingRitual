@@ -314,6 +314,7 @@ MonoBehaviour:
   audioSource: {fileID: 118207178}
   audioAmbient: {fileID: 0}
   ambientSound: {fileID: 0}
+  bgmSound: {fileID: 0}
 --- !u!82 &118207178
 AudioSource:
   m_ObjectHideFlags: 0

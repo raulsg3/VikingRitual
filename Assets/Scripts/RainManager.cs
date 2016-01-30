@@ -11,7 +11,7 @@ public class RainManager : MonoBehaviour
     public GameObject goMoebiusStrip;
     #endregion
 
-    private bool bStartAnim;
+    private bool bStartAnim, bFinGame;
     private bool bJummping;
     private float fRainSliderValue = 0.0f;
     private string strScene = "RainScene";
@@ -19,6 +19,7 @@ public class RainManager : MonoBehaviour
     void Start()
     {
         bStartAnim = false;
+        bFinGame = false;
         bJummping = false;
         fRainSliderValue = GameManager.instance.GetRain();
     }
@@ -31,10 +32,21 @@ public class RainManager : MonoBehaviour
         {
             //Comprobamos que unicamente se lanze la animación de inicio cuando corresponda
             if (!bStartAnim)
+            {
                 goMoebiusStrip.GetComponent<Animator>().SetTrigger("StartTrigger");
+                bStartAnim = true;
+            }
+                
 
             bJummping = true;
             StartCoroutine(goPlayer.GetComponent<Playercontroller>().iJump(fJumpHeight));
+
+
+            //Debug.Log("Para por dios Carlos intenta de pararlo : " + bStartAnim + " " + bFinGame);
+            //if(bStartAnim && bFinGame)
+            //{
+            //    goMoebiusStrip.GetComponent<Animator>().SetTrigger("StopTrigger");
+            //}
 
         }
 
@@ -73,6 +85,16 @@ public class RainManager : MonoBehaviour
     /// <param name="value"></param>
     public void setRainSliderValue(float value)
     {
+        Debug.Log("Por la puntuacion te quiero andres :" + value);
         fRainSliderValue = fRainSliderValue + value;
+    }
+    /// <summary>
+    /// Set del booleano que recoge que ha terminado la partida
+    /// </summary>
+    /// <param name="End"></param>
+    public void setEndGame(bool End)
+    {
+        Debug.Log("Al fin delfin :" + End);
+        bFinGame = End;
     }
 }

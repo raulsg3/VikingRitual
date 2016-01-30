@@ -15,10 +15,7 @@ public class ProvidenceManager : MonoBehaviour
     private List<Transform> spawnPoints = new List<Transform>();
 
     // Fish prefab
-    public GameObject fish;
-
-    // List of enemies
-    private List<ProvidenceFish> fishes = new List<ProvidenceFish>();
+    public Rigidbody fish;
 
     // Use this for initialization
     void Awake ()
@@ -38,7 +35,21 @@ public class ProvidenceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = (Camera.main.ScreenPointToRay(Input.mousePosition));
+            RaycastHit hit;
 
+            if (Physics.Raycast(ray, out hit))
+            {
+                Transform transformHit = hit.transform;
+
+                if (transformHit.tag == "ProvidenceFish") {
+                    fishSuccess();
+                    Destroy(transformHit.gameObject);
+                }
+            }
+        }
     }
     
     IEnumerator GenerateFishes()
@@ -53,9 +64,11 @@ public class ProvidenceManager : MonoBehaviour
             Transform rndSpawnPoint = spawnPoints[rndIndex];
 
             // Create the new fish in that point
-            GameObject newFish = Instantiate<GameObject>(fish);
+            Rigidbody newFish = Instantiate<Rigidbody>(fish);
             newFish.transform.position = rndSpawnPoint.position + rndSpawnPoint.forward * 2;
             newFish.transform.forward = rndSpawnPoint.forward;
+
+            newFish.velocity = newFish.transform.forward * 5.0f;
         }
     }
 

@@ -9,7 +9,9 @@ TagManager:
   - FateProjectile
   - obstacle
   - Ground
+  - Meta
   - ProvidenceSpawnPoints
+  - ProvidenceFish
   layers:
   - Default
   - TransparentFX

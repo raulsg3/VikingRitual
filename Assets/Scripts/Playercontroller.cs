@@ -9,9 +9,10 @@ public class Playercontroller : MonoBehaviour
     public float _gravity = 0.1f;
     public bool bFalling = false;
     private Rigidbody rBody;
-
     private Vector3 vVectorGround;
     #endregion
+
+    private RainManager rMngr;
 
     // Use this for initialization
     void Start()
@@ -25,7 +26,7 @@ public class Playercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Movimientoç
+        //Movimiento
 
 
     }
@@ -36,7 +37,7 @@ public class Playercontroller : MonoBehaviour
     public IEnumerator iJump(float force)
     {
         Debug.Log("invocando el salto con: " + rBody.velocity.y + " - " + bFalling);
-        if (/*rBody.velocity.y <= 0.1f &&*/ !bFalling)
+        if (!bFalling)
         {
             bFalling = true;
             _Motion.y = (force) * _gravity;
@@ -49,9 +50,22 @@ public class Playercontroller : MonoBehaviour
     /// <summary>
     /// Gestionamos el fin del minijuego.
     /// </summary>
-    private void OnDeath()
+    private void OnDeath(bool bDead)
     {
+        float value = 0.0f;
+        //evaluamos si derrota o victoria
+        if (bDead)
+        {
+            //Habilitamos los botones de reinicio nivel o exit scene
+            value = -1.0f;
 
+        }
+        else
+        {
+            //Habilitamos el boton de exit
+            value = 2.0f;
+        }
+        rMngr.setRainSliderValue(value);
     }
     /// <summary>
     /// 
@@ -61,7 +75,13 @@ public class Playercontroller : MonoBehaviour
     {
         if (colision.gameObject.tag == "obstacle")
         {
+            //condicion de derrota
+            OnDeath(true);
+        }
 
+        if (colision.gameObject.tag == "Meta")
+        {
+            OnDeath(false);
         }
     }
     /// <summary>

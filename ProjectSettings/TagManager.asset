@@ -13,6 +13,7 @@ TagManager:
   - ProvidenceSpawnPoints
   - RainManager
   - MoebiusStrip
+  - ProvidenceFish
   layers:
   - Default
   - TransparentFX

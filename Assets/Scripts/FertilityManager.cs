@@ -83,7 +83,6 @@ public class FertilityManager : MonoBehaviour {
 	public void goodButton(){
 		index++;
 		if (index == size) {
-			status = false;
 			StartCoroutine(WaitGoodDone());
 		}
 	}
@@ -104,8 +103,10 @@ public class FertilityManager : MonoBehaviour {
 		}
 	}
 	IEnumerator WaitGoodDone(){
-		Destroy (Instantiate (fxPrefab, spawnPositionTitle.position, spawnPositionTitle.rotation), 1);
-		yield return new WaitForSeconds (4);
+		yield return new WaitForSeconds (1);
+		Destroy (Instantiate (fxPrefab, spawnPositionTitle.position, spawnPositionTitle.rotation), 3);
+		yield return new WaitForSeconds (3);
+		status = false;
 	}
 
 

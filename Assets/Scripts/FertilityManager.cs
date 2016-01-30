@@ -19,6 +19,16 @@ public class FertilityManager : MonoBehaviour {
 	public AudioClip audioVictoria;
 	public AudioClip audioDerrota;
 
+	public AudioClip audioBackground;
+
+	public GameObject fxPrefab;
+	public Transform spawnPositionA;
+	public Transform spawnPositionB;
+	public Transform spawnPositionC;
+
+	AudioManager audioManager;
+
+
 	void Start () {
 		// Initializate
 		buttonA = GetComponent<Button>();
@@ -30,62 +40,48 @@ public class FertilityManager : MonoBehaviour {
 		index = 0; 
 		addRandom(); //initializate array
 		status = false; // firts cpu time
+
+		audioManager = AudioManager.audioManagerInstance;
+		audioManager.PlaySound(audioBackground);
 	}
 
 
 	void Update () {
 		if (!status) {
 			if (round < 4) {
-				addRandom ();		
-				for (int x = 0; x < size; x++) {						
-					Debug.Log (num[x]);
-					if (num [x] == 1) {
-						AudioManager.audioManagerInstance.PlaySound (audioA);
-						// TODO Dibujar boton A	
-					} else if (num [x] == 2){
-						AudioManager.audioManagerInstance.PlaySound (audioB);
-						// TODO Dibujar boton B
-					} else {
-						AudioManager.audioManagerInstance.PlaySound (audioC);
-						// TODO Dibujar boton C
-					}
-				}
+				addRandom ();
 				status = true;
-				index = 0;
+				playCPU (0);
 			} else {
 				endGood();
 			}
 		} 
 	}
 
-
-
-	// onClicks
-	public void OnButtonA() {
-		AudioManager.audioManagerInstance.PlaySound (audioA);
-		// TODO Dibujar boton A	
-		if (num [index] == 1) {
-			goodButton();
+	// Play the array notes
+	public void playCPU(int x){					
+		Debug.Log (num[x]);
+		if (num [x] == 1) {
+			audioManager.PlaySound (audioA);
+			instanciateEffect(spawnPositionA);
+		} else if (num [x] == 2){
+			audioManager.PlaySound (audioB);
+			instanciateEffect(spawnPositionB);
 		} else {
-			endFail();
+			audioManager.PlaySound (audioC);
+			instanciateEffect(spawnPositionC);
 		}
+		StartCoroutine(Wait(x));
 	}
-	public void OnButtonB() {
-		AudioManager.audioManagerInstance.PlaySound (audioB);
-		// TODO Dibujar boton B
-		if (num [index] == 2) {
-			goodButton();
+
+	IEnumerator Wait(int x){
+		yield return new WaitForSeconds (2);
+		x++;
+		if (x < size) {
+			playCPU (x);
 		} else {
-			endFail();
-		}
-	}
-	public void OnButtonC() {
-		AudioManager.audioManagerInstance.PlaySound (audioC);
-		// TODO Dibujar boton C
-		if (num [index] == 3) {
-			goodButton();
-		} else {
-			endFail();
+			index = 0;
+			round++;
 		}
 	}
 
@@ -97,26 +93,57 @@ public class FertilityManager : MonoBehaviour {
 		num[size+1] = Random.Range(1,4);
 		size = size+2;
 	}
-
 	public void goodButton(){
-		Debug.Log ("Acierto");
 		index++;
 		if (index == size) {
 			status = false;
 		}
 	}
-
+	public void instanciateEffect(Transform x){
+		Destroy (Instantiate (fxPrefab, x.position, x.rotation), 1);
+	}
 
 
 	// Methods End game
 	public void endGood(){
 		//TODO El usuario Gano
-		AudioManager.audioManagerInstance.PlaySound (audioVictoria);
+		audioManager.PlaySound (audioVictoria);
 		Debug.Log ("VICTORIA");
 	}
 	public void endFail(){
 		//TODO El usuario a fallado el boton a presionar
-		AudioManager.audioManagerInstance.PlaySound (audioDerrota);
+		audioManager.PlaySound (audioDerrota);
 		Debug.Log ("DERROTA");
+	}
+
+
+
+	// onClicks
+	public void OnButtonA() {
+		audioManager.PlaySound (audioA);
+		instanciateEffect(spawnPositionA);
+		if (num [index] == 1) {
+			goodButton();
+		} else {
+			endFail();
+		}
+	}
+	public void OnButtonB() {
+		audioManager.PlaySound (audioB);
+		instanciateEffect(spawnPositionB);
+		if (num [index] == 2) {
+			goodButton();
+		} else {
+			endFail();
+		}
+	}
+	public void OnButtonC() {
+		audioManager.PlaySound (audioC);
+		instanciateEffect(spawnPositionC);
+		if (num [index] == 3) {
+			goodButton();
+		} else {
+			endFail();
+		}
 	}
 }

@@ -120,7 +120,8 @@ MonoBehaviour:
   audioC: {fileID: 8300000, guid: 54baf1bf3a7596443a240f9f084949e4, type: 3}
   audioVictoria: {fileID: 8300000, guid: b3db73ca952434c4a9c1e317de2a8397, type: 3}
   audioDerrota: {fileID: 8300000, guid: 41e3bc1457a8153448d01bb413dfa1ec, type: 3}
-  myFxPrefab: {fileID: 117996, guid: e8cd9f7ba1c28f84c8283478b070020e, type: 2}
+  audioBackground: {fileID: 8300000, guid: 331d9b82a844b46469704182c9a1bef1, type: 3}
+  fxPrefab: {fileID: 117996, guid: e8cd9f7ba1c28f84c8283478b070020e, type: 2}
   spawnPositionA: {fileID: 453117341}
   spawnPositionB: {fileID: 688150648}
   spawnPositionC: {fileID: 1098740008}

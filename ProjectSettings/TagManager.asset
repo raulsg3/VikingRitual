@@ -7,6 +7,7 @@ TagManager:
   - FateSpawnPoints
   - FateEnemy
   - FateProjectile
+  - Ground
   layers:
   - Default
   - TransparentFX

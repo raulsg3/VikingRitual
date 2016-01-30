@@ -49,9 +49,9 @@ public class FertilityManager : MonoBehaviour {
 
 	void Update () {
 		if (!status) {
+			status = true;
 			if (round < 4) {
 				addRandom ();
-				status = true;
 				playCPU (0);
 			} else {
 				endGood();
@@ -102,7 +102,7 @@ public class FertilityManager : MonoBehaviour {
 			round++;
 		}
 	}
-	IEnumerator WaitGoodDone(){
+	IEnumerator WaitGoodDone(){		
 		yield return new WaitForSeconds (1);
 		Destroy (Instantiate (fxPrefab, spawnPositionTitle.position, spawnPositionTitle.rotation), 3);
 		yield return new WaitForSeconds (3);
@@ -114,15 +114,16 @@ public class FertilityManager : MonoBehaviour {
 	public void endGood(){
 		//TODO El usuario Gano
 		audioManager.PlaySound (audioVictoria);
+		GameManager.instance.SetAttributeValue (2f, GameManager.Scenes.FertilityScene);
+		activeMenu ();
 		Debug.Log ("VICTORIA");
 	}
 	public void endFail(){
 		//TODO El usuario a fallado el boton a presionar
 		audioManager.PlaySound (audioDerrota);
+		activeMenu ();
 		Debug.Log ("DERROTA");
 	}
-
-
 
 	// onClicks
 	public void OnButtonA() {
@@ -151,5 +152,12 @@ public class FertilityManager : MonoBehaviour {
 		} else {
 			endFail();
 		}
+	}
+
+
+	// ACTIVE MENU
+	public void activeMenu(){
+		// retryButton.enabled = true;
+		// exitButton.enabled = true;
 	}
 }

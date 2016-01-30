@@ -25,6 +25,7 @@ public class FertilityManager : MonoBehaviour {
 	public Transform spawnPositionA;
 	public Transform spawnPositionB;
 	public Transform spawnPositionC;
+	public Transform spawnPositionTitle;
 
 	AudioManager audioManager;
 
@@ -59,8 +60,7 @@ public class FertilityManager : MonoBehaviour {
 	}
 
 	// Play the array notes
-	public void playCPU(int x){					
-		Debug.Log (num[x]);
+	public void playCPU(int x){		
 		if (num [x] == 1) {
 			audioManager.PlaySound (audioA);
 			instanciateEffect(spawnPositionA);
@@ -74,19 +74,6 @@ public class FertilityManager : MonoBehaviour {
 		StartCoroutine(Wait(x));
 	}
 
-	IEnumerator Wait(int x){
-		yield return new WaitForSeconds (2);
-		x++;
-		if (x < size) {
-			playCPU (x);
-		} else {
-			index = 0;
-			round++;
-		}
-	}
-
-
-
 	// Methods
 	public void addRandom(){
 		num[size] = Random.Range(1,4);
@@ -97,10 +84,28 @@ public class FertilityManager : MonoBehaviour {
 		index++;
 		if (index == size) {
 			status = false;
+			StartCoroutine(WaitGoodDone());
 		}
 	}
 	public void instanciateEffect(Transform x){
 		Destroy (Instantiate (fxPrefab, x.position, x.rotation), 1);
+	}
+
+
+	// Waits Methods
+	IEnumerator Wait(int x){
+		yield return new WaitForSeconds (2);
+		x++;
+		if (x < size) {
+			playCPU (x);
+		} else {
+			index = 0;
+			round++;
+		}
+	}
+	IEnumerator WaitGoodDone(){
+		Destroy (Instantiate (fxPrefab, spawnPositionTitle.position, spawnPositionTitle.rotation), 1);
+		yield return new WaitForSeconds (4);
 	}
 
 

@@ -43,6 +43,8 @@ public class AudioManager : MonoBehaviour {
 	public void StopSound(){
 		audioSource.Stop ();
 	}
+	public void StopAmbient(){
+	}
 	public void PlayBGM(AudioClip audioClip){
 		bgmSound.PlayOneShot (audioClip);
 	}

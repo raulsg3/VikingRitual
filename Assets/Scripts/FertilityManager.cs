@@ -54,8 +54,8 @@ public class FertilityManager : MonoBehaviour {
 		audioManager.StopSound();
 		audioManager.PlayBGM(audioBackground);
 
-		//buttonExit.interactable = false;
-		//buttonRetry.interactable = false;
+		// buttonExit.interactable = false;
+		// buttonRetry.interactable = false;
 	}
 
 
@@ -175,8 +175,8 @@ public class FertilityManager : MonoBehaviour {
 
 	// ACTIVE MENU
 	public void activeMenu(){
-		buttonExit.gameObject.SetActive (true);
-		buttonRetry.gameObject.SetActive (true);
+		// buttonExit.gameObject.SetActive (true);
+		// buttonRetry.gameObject.SetActive (true);
 	}
 	public void OnButtonRetry() {
 		audioManager.StopBGM ();

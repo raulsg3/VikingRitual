@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour {
 	public static AudioManager audioManagerInstance = null;   
 	public AudioSource audioSource;
 	public AudioSource audioAmbient;
+	public AudioClip ambientSound;
 
 	void Awake()
 	{
@@ -28,6 +29,7 @@ public class AudioManager : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+		
 	
 	}
 	public void PlaySound(AudioClip audioClip){
@@ -35,5 +37,7 @@ public class AudioManager : MonoBehaviour {
 		audioSource.PlayOneShot (audioClip);
 
 	}
+
+
 
 }

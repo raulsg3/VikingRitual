@@ -4,7 +4,7 @@ using System.Collections;
 
 public class FertilityManager : MonoBehaviour {
 	int [] num = new int [10]; 
-	int size;   //size of the array
+	int size;   // size of the array
 	int index;  // index of the player in the array 
 	int round;
 	bool status;
@@ -16,6 +16,8 @@ public class FertilityManager : MonoBehaviour {
 	public AudioClip audioA;
 	public AudioClip audioB;
 	public AudioClip audioC;
+	public AudioClip audioVictoria;
+	public AudioClip audioDerrota;
 
 	void Start () {
 		// Initializate
@@ -24,8 +26,8 @@ public class FertilityManager : MonoBehaviour {
 		buttonC = GetComponent<Button>();
 
 		round = 1;
-		size = 0;  // firts size
-		index = 0;  // firts index
+		size = 0; 
+		index = 0; 
 		addRandom(); //initializate array
 		status = false; // firts cpu time
 	}
@@ -35,15 +37,23 @@ public class FertilityManager : MonoBehaviour {
 		if (!status) {
 			if (round < 4) {
 				addRandom ();		
-				for (int x = 0; x < size; x++) {
-					// TODO Ir dibujando secuencialmente los botones
-					Debug.Log (num [x]);
+				for (int x = 0; x < size; x++) {						
+					Debug.Log (num[x]);
+					if (num [x] == 1) {
+						AudioManager.audioManagerInstance.PlaySound (audioA);
+						// TODO Dibujar boton A	
+					} else if (num [x] == 2){
+						AudioManager.audioManagerInstance.PlaySound (audioB);
+						// TODO Dibujar boton B
+					} else {
+						AudioManager.audioManagerInstance.PlaySound (audioC);
+						// TODO Dibujar boton C
+					}
 				}
 				status = true;
 				index = 0;
 			} else {
-				// TODO Victoria
-				Debug.Log("Victoria");
+				endGood();
 			}
 		} 
 	}
@@ -52,43 +62,30 @@ public class FertilityManager : MonoBehaviour {
 
 	// onClicks
 	public void OnButtonA() {
-		Debug.Log ("Botton A");
-		//TODO: Ejecutar sonido
-		//buttonA.image.color = new Color (0, 0, 1, 1);
+		AudioManager.audioManagerInstance.PlaySound (audioA);
+		// TODO Dibujar boton A	
 		if (num [index] == 1) {
-			Debug.Log ("Acierto");
-			index++;
-			if (index == size) {
-				status = false;
-			}
+			goodButton();
 		} else {
-			Debug.Log ("Fallo");
+			endFail();
 		}
 	}
 	public void OnButtonB() {
-		Debug.Log ("Botton B");
-		//buttonB.image.color = new Color (0, 0, 1, 1);
+		AudioManager.audioManagerInstance.PlaySound (audioB);
+		// TODO Dibujar boton B
 		if (num [index] == 2) {
-			Debug.Log ("Acierto");
-			index++;
-			if (index == size) {
-				status = false;
-			}
+			goodButton();
 		} else {
-			Debug.Log ("Fallo");
+			endFail();
 		}
 	}
 	public void OnButtonC() {
-		Debug.Log ("Botton C");
-		//buttonD.image.color = new Color (0, 0, 1, 1);
+		AudioManager.audioManagerInstance.PlaySound (audioC);
+		// TODO Dibujar boton C
 		if (num [index] == 3) {
-			Debug.Log ("Acierto");
-			index++;
-			if (index == size) {
-				status = false;
-			}
+			goodButton();
 		} else {
-			Debug.Log ("Fallo");
+			endFail();
 		}
 	}
 
@@ -99,5 +96,27 @@ public class FertilityManager : MonoBehaviour {
 		num[size] = Random.Range(1,4);
 		num[size+1] = Random.Range(1,4);
 		size = size+2;
+	}
+
+	public void goodButton(){
+		Debug.Log ("Acierto");
+		index++;
+		if (index == size) {
+			status = false;
+		}
+	}
+
+
+
+	// Methods End game
+	public void endGood(){
+		//TODO El usuario Gano
+		AudioManager.audioManagerInstance.PlaySound (audioVictoria);
+		Debug.Log ("VICTORIA");
+	}
+	public void endFail(){
+		//TODO El usuario a fallado el boton a presionar
+		AudioManager.audioManagerInstance.PlaySound (audioDerrota);
+		Debug.Log ("DERROTA");
 	}
 }

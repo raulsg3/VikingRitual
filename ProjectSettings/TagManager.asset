@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - FateSpawnPoints
+  - FateEnemy
+  - FateProjectile
+  - obstacle
+  - Ground
+  - ProvidenceSpawnPoints
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class FateManager : MonoBehaviour {
+public class FateManager : MonoBehaviour
+{
+    // Gameplay variables
+    public float waitTime = 2.0f;
+    public int totalSuccess = 10;
+
+    private int numSuccess = 0;
 
     // List of spawn points
     public Transform spawnPointList;
@@ -27,7 +33,7 @@ public class FateManager : MonoBehaviour {
 
 	void Start ()
     {
-        StartCoroutine(GenerateEnemies(1.0f));
+        StartCoroutine(GenerateEnemies());
     }
 
     // Update is called once per frame
@@ -36,9 +42,9 @@ public class FateManager : MonoBehaviour {
 
     }
     
-    IEnumerator GenerateEnemies(float waitTime)
+    IEnumerator GenerateEnemies()
     {
-        while (true)
+        while (numSuccess < totalSuccess)
         {
             // Waiting...
             yield return new WaitForSeconds(waitTime);
@@ -51,6 +57,16 @@ public class FateManager : MonoBehaviour {
             GameObject newEnemy = Instantiate<GameObject>(enemy);
             newEnemy.transform.position = rndSpawnPoint.position + rndSpawnPoint.forward * 2;
             newEnemy.transform.forward = rndSpawnPoint.forward;
+        }
+    }
+
+    public void enemyDestroyed()
+    {
+        ++numSuccess;
+
+        if (numSuccess >= totalSuccess)
+        {
+            Debug.Log("Success");
         }
     }
 }

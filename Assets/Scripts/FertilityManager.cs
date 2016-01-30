@@ -51,10 +51,11 @@ public class FertilityManager : MonoBehaviour {
 		oneFail = false; // User can fail 2 times
 
 		audioManager = AudioManager.audioManagerInstance;
-		audioManager.PlaySound(audioBackground);
+		audioManager.StopSound();
+		audioManager.PlayBGM(audioBackground);
 
-		buttonExit.interactable = false;
-		buttonRetry.interactable = false;
+		//buttonExit.interactable = false;
+		//buttonRetry.interactable = false;
 	}
 
 
@@ -178,11 +179,11 @@ public class FertilityManager : MonoBehaviour {
 		buttonRetry.gameObject.SetActive (true);
 	}
 	public void OnButtonRetry() {
-		//audioManager.StopBGM ();
+		audioManager.StopBGM ();
 		GameManager.instance.Loadscene ("FertilityScene");
 	}
 	public void OnButtonExit() {
-		//audioManager.StopBGM ();
+		audioManager.StopBGM ();
 		GameManager.instance.LoadMainScene ();
 	}
 }

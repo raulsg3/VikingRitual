@@ -27,7 +27,8 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	void Start(){
-		//audioSource = GetComponent<AudioSource> () as AudioSource;
+		audioSource = GetComponent<AudioSource> () as AudioSource;
+		bgmSound = GetComponent<AudioSource> () as AudioSource;
 
 	}
 
@@ -39,11 +40,14 @@ public class AudioManager : MonoBehaviour {
 	public void PlaySound(AudioClip audioClip){
 		audioSource.PlayOneShot (audioClip);
 	}
-	public void PlayBGM(){
-		//bgmSound.PlayOneShot (audioClip);
+	public void StopSound(){
+		audioSource.Stop ();
+	}
+	public void PlayBGM(AudioClip audioClip){
+		bgmSound.PlayOneShot (audioClip);
 	}
 	public void StopBGM(){
-		//bgmSound.Stop ();
+		bgmSound.Stop ();
 	}
 
 }

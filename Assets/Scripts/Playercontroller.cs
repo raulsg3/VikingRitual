@@ -78,7 +78,8 @@ public class Playercontroller : MonoBehaviour
         rMngr.setRainSliderValue(value);
         rMngr.setEndGame(true);
         //Detenemos la cinta de Moebius
-        GameObject.FindGameObjectWithTag("MoebiusStrip").GetComponent<Animator>().SetTrigger("StopTrigger");
+        rMngr.goMoebiusStrip.GetComponent<Animator>().SetTrigger("StopTrigger");
+        //GameObject.FindGameObjectWithTag("MoebiusStrip").GetComponent<Animator>().SetTrigger("StopTrigger");
     }
     /// <summary>
     /// 

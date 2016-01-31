@@ -23,9 +23,11 @@ public class FateShip : MonoBehaviour {
     // Projectile
     public Rigidbody projectile;
 
+    //
+    private FateManager fMngr;
     // Use this for initialization
     void Start () {
-	
+        fMngr = GameObject.FindGameObjectWithTag("FateManager").GetComponent<FateManager>();
 	}
 	
 	// Update is called once per frame
@@ -80,6 +82,8 @@ public class FateShip : MonoBehaviour {
     {
         if (collision.gameObject.tag == "FateEnemy") {
             Debug.Log("Tocado");
+            AudioManager.audioManagerInstance.PlaySound(fMngr.audioDerrota);
+            GameManager.instance.SetAttributeValue(-1.0f, GameManager.Scenes.FateScene);
         }
     }
 

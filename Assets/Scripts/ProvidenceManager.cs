@@ -115,7 +115,7 @@ public class ProvidenceManager : MonoBehaviour
         {
             Debug.Log("Fail");
             activateEndButtons();
-            GameManager.instance.SetAttributeValue(2.0f, GameManager.Scenes.ProvidenceScene);
+            GameManager.instance.SetAttributeValue(-1.0f, GameManager.Scenes.ProvidenceScene);
             AudioManager.audioManagerInstance.PlaySound(audioDerrota);
         }
     }

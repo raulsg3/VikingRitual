@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 454410}
   - 212: {fileID: 21290186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pez2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 54: {fileID: 5472462}
   - 114: {fileID: 11447372}
   - 114: {fileID: 11405760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ProvidenceFish
   m_TagString: ProvidenceFish
   m_Icon: {fileID: 0}
@@ -187,6 +187,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: timeUntilFall
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -101,13 +101,15 @@ public class FateManager : MonoBehaviour
             Debug.Log("Success");
             activateEndButtons();
             AudioManager.audioManagerInstance.PlaySound(audioVictoria);
-            GameManager.instance.SetAttributeValue(-1.0f, GameManager.Scenes.FateScene);
+            GameManager.instance.SetAttributeValue(2.0f, GameManager.Scenes.ProvidenceScene);
         }
     }
 
     public void playerDestroyed()
     {
         activateEndButtons();
+        AudioManager.audioManagerInstance.PlaySound(audioDerrota);
+        GameManager.instance.SetAttributeValue(-1.0f, GameManager.Scenes.ProvidenceScene);
     }
 
     private void updateTextSuccess()

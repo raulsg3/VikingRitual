@@ -48,9 +48,6 @@ public class FertilityManager : MonoBehaviour
 		buttonB = GetComponent<Button>();
 		buttonC = GetComponent<Button>();
 
-		buttonExit = GetComponent<Button>();
-		buttonRetry = GetComponent<Button>();
-
 		round = 1;
 		size = 0; 
 		index = 0; 
@@ -62,9 +59,6 @@ public class FertilityManager : MonoBehaviour
 		audioManager.StopSound();
 		audioManager.PlayBGM(audioBackground);
 
-        // buttonExit.interactable = false;
-        // buttonRetry.interactable = false;
-
         //Feedback
         updateTextSuccess();
     }
@@ -73,6 +67,7 @@ public class FertilityManager : MonoBehaviour
 		if (!status) {
 			status = true;
 			if (round < numRounds + 1) {
+				updateTextSuccess ();
 				addRandom ();
 				playCPU (0);
 			} else {
@@ -160,7 +155,7 @@ public class FertilityManager : MonoBehaviour
 		//TODO El usuario Gano
 		audioManager.PlaySound (audioVictoria);
 		GameManager.instance.SetAttributeValue (1f, GameManager.Scenes.FertilityScene);
-		activeMenu ();
+		activateEndButtons ();
 		Debug.Log ("VICTORIA");
 	}
 	public void endFail(){
@@ -168,8 +163,8 @@ public class FertilityManager : MonoBehaviour
 		audioManager.PlaySound (audioDerrota);
 		if (oneFail) {
 			GameManager.instance.SetAttributeValue (-2f, GameManager.Scenes.FertilityScene);
-			activeMenu ();
 			Debug.Log ("DERROTA");
+			activateEndButtons ();
 		} else {
 			Instantiate (fxPrefab, spawnOneFail.position, spawnOneFail.rotation);
 			oneFail = true;
@@ -207,10 +202,6 @@ public class FertilityManager : MonoBehaviour
 	}
     
 	// ACTIVE MENU
-	public void activeMenu(){
-		// buttonExit.gameObject.SetActive (true);
-		// buttonRetry.gameObject.SetActive (true);
-	}
 	public void OnButtonRetry() {
 		audioManager.StopBGM ();
 		GameManager.instance.Loadscene ("FertilityScene");

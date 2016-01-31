@@ -117,4 +117,11 @@ public class GameManager : MonoBehaviour {
 		rainSlider.value = rainValue;
 
 	}
+    /// <summary>
+    /// 
+    /// </summary>
+    public void OnButtonExit()
+    {
+        Application.Quit();
+    }
 }

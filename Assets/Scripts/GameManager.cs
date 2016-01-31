@@ -56,8 +56,9 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void Loadscene(string SceneName){
-		
-		SceneManager.LoadScene(SceneName);
+        
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneName);
 	}
 
 	public void LoadMainScene(){

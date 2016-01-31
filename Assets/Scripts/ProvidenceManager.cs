@@ -101,6 +101,8 @@ public class ProvidenceManager : MonoBehaviour
             activateEndButtons();
             GameManager.instance.SetAttributeValue(2.0f, GameManager.Scenes.ProvidenceScene);
             AudioManager.audioManagerInstance.PlaySound(audioVictoria);
+
+            Time.timeScale = 0;
         }
     }
 
@@ -117,6 +119,8 @@ public class ProvidenceManager : MonoBehaviour
             activateEndButtons();
             GameManager.instance.SetAttributeValue(-1.0f, GameManager.Scenes.ProvidenceScene);
             AudioManager.audioManagerInstance.PlaySound(audioDerrota);
+
+            Time.timeScale = 0;
         }
     }
 

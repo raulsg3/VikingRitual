@@ -657,8 +657,8 @@ MonoBehaviour:
   fTuneSpawnObj: 0
   goPlayer: {fileID: 1838814898}
   goMoebiusStrip: {fileID: 1073318929}
-  audioVictoria: {fileID: 0}
-  audioDerrota: {fileID: 0}
+  audioVictoria: {fileID: 8300000, guid: 1063fd31fe147984896f97408b4f0c49, type: 3}
+  audioDerrota: {fileID: 8300000, guid: d7e728ef200e8374f8bb592b7660455d, type: 3}
 --- !u!4 &504812070
 Transform:
   m_ObjectHideFlags: 0

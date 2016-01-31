@@ -1151,8 +1151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 2
   totalSuccess: 10
-  audioVictoria: {fileID: 0}
-  audioDerrota: {fileID: 0}
+  audioVictoria: {fileID: 8300000, guid: 1063fd31fe147984896f97408b4f0c49, type: 3}
+  audioDerrota: {fileID: 8300000, guid: d7e728ef200e8374f8bb592b7660455d, type: 3}
   textSuccess: {fileID: 816520069}
   imageFailure: {fileID: 851543001}
   buttonExit: {fileID: 1463617841}

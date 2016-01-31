@@ -9,6 +9,9 @@ public class ProvidenceManager : MonoBehaviour
     public float waitTime = 2.0f;
     public int totalSuccess = 10;
 
+    //Audios
+    public AudioClip audioVictoria;
+    public AudioClip audioDerrota;
     private int numSuccess = 0;
     private bool previousFail = false;
 
@@ -96,6 +99,8 @@ public class ProvidenceManager : MonoBehaviour
         {
             Debug.Log("Success");
             activateEndButtons();
+            GameManager.instance.SetAttributeValue(2.0f, GameManager.Scenes.ProvidenceScene);
+            AudioManager.audioManagerInstance.PlaySound(audioVictoria);
         }
     }
 
@@ -110,6 +115,8 @@ public class ProvidenceManager : MonoBehaviour
         {
             Debug.Log("Fail");
             activateEndButtons();
+            GameManager.instance.SetAttributeValue(2.0f, GameManager.Scenes.ProvidenceScene);
+            AudioManager.audioManagerInstance.PlaySound(audioDerrota);
         }
     }
 

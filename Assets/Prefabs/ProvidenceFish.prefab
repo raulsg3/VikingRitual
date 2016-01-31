@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5f1c4028a6a404e90d4eb02b6b04cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 4.5
+  lifeTime: 3.5
 --- !u!114 &11447372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecf83731e6594840a1fb9ddb125bca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilFall: 2
+  timeUntilFall: 1.5
 --- !u!135 &13527262
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -109,7 +109,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &21290186
 SpriteRenderer:
@@ -178,7 +178,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lifeTime
-      value: 4.5
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: timeUntilFall
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

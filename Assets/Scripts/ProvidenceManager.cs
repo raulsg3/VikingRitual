@@ -16,6 +16,9 @@ public class ProvidenceManager : MonoBehaviour
     public Text textSuccess;
     public Image imageFailure;
 
+    public Button buttonExit;
+    public Button buttonRetry;
+
     // List of spawn points
     public Transform spawnPointList;
     private List<Transform> spawnPoints = new List<Transform>();
@@ -92,6 +95,7 @@ public class ProvidenceManager : MonoBehaviour
         if (numSuccess >= totalSuccess)
         {
             Debug.Log("Success");
+            activateEndButtons();
         }
     }
 
@@ -105,6 +109,7 @@ public class ProvidenceManager : MonoBehaviour
         else
         {
             Debug.Log("Fail");
+            activateEndButtons();
         }
     }
 
@@ -127,6 +132,12 @@ public class ProvidenceManager : MonoBehaviour
     public void OnButtonExit()
     {
         GameManager.instance.LoadMainScene();
+    }
+
+    private void activateEndButtons()
+    {
+        buttonExit.gameObject.SetActive(true);
+        buttonRetry.gameObject.SetActive(true);
     }
 
 }

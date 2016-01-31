@@ -387,6 +387,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 075b2cbb347e3824c9f3ffa37a4f6571, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &346961331 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11404346, guid: 075b2cbb347e3824c9f3ffa37a4f6571,
+    type: 2}
+  m_PrefabInternal: {fileID: 346961330}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &346961332 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11489212, guid: 075b2cbb347e3824c9f3ffa37a4f6571,
+    type: 2}
+  m_PrefabInternal: {fileID: 346961330}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &358044588
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,10 +513,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920f3aa7b88049043844242a65b7ffa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 2
+  waitTime: 1.5
   totalSuccess: 10
   textSuccess: {fileID: 1313519920}
   imageFailure: {fileID: 1313519919}
+  buttonExit: {fileID: 346961332}
+  buttonRetry: {fileID: 346961331}
   spawnPointList: {fileID: 1263333286}
   fish: {fileID: 5472462, guid: 4cc24cddc2062c749b371d6f844bc79c, type: 2}
 --- !u!1 &875486842

@@ -17,6 +17,9 @@ public class FateManager : MonoBehaviour
     public Text textSuccess;
     public Image imageFailure;
 
+    public Button buttonExit;
+    public Button buttonRetry;
+
     // List of spawn points
     public Transform spawnPointList;
     private List<Transform> spawnPoints = new List<Transform>();
@@ -87,8 +90,7 @@ public class FateManager : MonoBehaviour
     {
         GameManager.instance.LoadMainScene();
     }
-
-
+    
     public void enemyDestroyed()
     {
         ++numSuccess;
@@ -97,13 +99,25 @@ public class FateManager : MonoBehaviour
         if (numSuccess >= totalSuccess)
         {
             Debug.Log("Success");
+            activateEndButtons();
             AudioManager.audioManagerInstance.PlaySound(audioVictoria);
             GameManager.instance.SetAttributeValue(-1.0f, GameManager.Scenes.FateScene);
         }
     }
 
+    public void playerDestroyed()
+    {
+        activateEndButtons();
+    }
+
     private void updateTextSuccess()
     {
         textSuccess.text = numSuccess + " / " + totalSuccess;
+    }
+
+    private void activateEndButtons()
+    {
+        buttonExit.gameObject.SetActive(true);
+        buttonRetry.gameObject.SetActive(true);
     }
 }

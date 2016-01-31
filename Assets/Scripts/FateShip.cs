@@ -82,6 +82,7 @@ public class FateShip : MonoBehaviour {
     {
         if (collision.gameObject.tag == "FateEnemy") {
             Debug.Log("Tocado");
+            fMngr.playerDestroyed();
             AudioManager.audioManagerInstance.PlaySound(fMngr.audioDerrota);
             GameManager.instance.SetAttributeValue(-1.0f, GameManager.Scenes.FateScene);
         }

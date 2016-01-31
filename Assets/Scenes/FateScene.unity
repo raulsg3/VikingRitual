@@ -1155,6 +1155,8 @@ MonoBehaviour:
   audioDerrota: {fileID: 0}
   textSuccess: {fileID: 816520069}
   imageFailure: {fileID: 851543001}
+  buttonExit: {fileID: 1463617841}
+  buttonRetry: {fileID: 1463617842}
   spawnPointList: {fileID: 1263333286}
   ship: {fileID: 677647258}
   enemy: {fileID: 159804, guid: eeaff90a7e279834dbd5944d9f26edc8, type: 2}
@@ -2851,7 +2853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22429972, guid: 075b2cbb347e3824c9f3ffa37a4f6571, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 22429972, guid: 075b2cbb347e3824c9f3ffa37a4f6571, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -2893,25 +2895,29 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11489212, guid: 075b2cbb347e3824c9f3ffa37a4f6571, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 389691845}
-    - target: {fileID: 11489212, guid: 075b2cbb347e3824c9f3ffa37a4f6571, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnButtonExit
-      objectReference: {fileID: 0}
     - target: {fileID: 11404346, guid: 075b2cbb347e3824c9f3ffa37a4f6571, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 389691845}
-    - target: {fileID: 11404346, guid: 075b2cbb347e3824c9f3ffa37a4f6571, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnButtonRetry
-      objectReference: {fileID: 0}
+    - target: {fileID: 11489212, guid: 075b2cbb347e3824c9f3ffa37a4f6571, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 389691845}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 075b2cbb347e3824c9f3ffa37a4f6571, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1463617841 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11489212, guid: 075b2cbb347e3824c9f3ffa37a4f6571,
+    type: 2}
+  m_PrefabInternal: {fileID: 1463617840}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1463617842 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11404346, guid: 075b2cbb347e3824c9f3ffa37a4f6571,
+    type: 2}
+  m_PrefabInternal: {fileID: 1463617840}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1464796008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4136,6 +4142,22 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 0aa4a94e5ea184cffaabaa234dca747e,
         type: 3}
+    - target: {fileID: 11427062, guid: a8e6f5ac704f2cf419102af184d288a0, type: 2}
+      propertyPath: timeBetweenShots
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427062, guid: a8e6f5ac704f2cf419102af184d288a0, type: 2}
+      propertyPath: projectileSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597824, guid: a8e6f5ac704f2cf419102af184d288a0, type: 2}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597824, guid: a8e6f5ac704f2cf419102af184d288a0, type: 2}
+      propertyPath: m_Size.z
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2304160, guid: a8e6f5ac704f2cf419102af184d288a0, type: 2}
     - {fileID: 3391306, guid: a8e6f5ac704f2cf419102af184d288a0, type: 2}

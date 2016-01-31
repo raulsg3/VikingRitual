@@ -10,6 +10,7 @@ public class ProvidenceManager : MonoBehaviour
     public int totalSuccess = 10;
 
     private int numSuccess = 0;
+    private bool previousFail = false;
 
     // User feedback
     public Text textSuccess;
@@ -88,6 +89,19 @@ public class ProvidenceManager : MonoBehaviour
         if (numSuccess >= totalSuccess)
         {
             Debug.Log("Success");
+        }
+    }
+
+    public void fishLost()
+    {
+        if (!previousFail)
+        {
+            previousFail = true;
+            imageFailure.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Fail");
         }
     }
 

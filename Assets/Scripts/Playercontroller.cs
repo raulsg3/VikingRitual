@@ -65,13 +65,15 @@ public class Playercontroller : MonoBehaviour
         {
             //Habilitamos los botones de reinicio nivel o exit scene
             value = -1.0f;
-			audioManager.PlaySound (audioDerrota);
+            rMngr.onDefeat();
+            audioManager.PlaySound (audioDerrota);
         }
         else
         {
             //Habilitamos el boton de exit
             value = 2.0f;
-			audioManager.PlaySound (audioVictoria);
+            rMngr.onVictory();
+            audioManager.PlaySound (audioVictoria);
         }
         rMngr.setRainSliderValue(value);
         rMngr.setEndGame(true);

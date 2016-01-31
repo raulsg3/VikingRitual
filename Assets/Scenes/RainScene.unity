@@ -657,8 +657,8 @@ MonoBehaviour:
   fTuneSpawnObj: 0
   goPlayer: {fileID: 1838814898}
   goMoebiusStrip: {fileID: 1073318929}
-  audioVictoria: {fileID: 8300000, guid: 1063fd31fe147984896f97408b4f0c49, type: 3}
-  audioDerrota: {fileID: 8300000, guid: d7e728ef200e8374f8bb592b7660455d, type: 3}
+  buttonExit: {fileID: 1046424400}
+  buttonRetry: {fileID: 1990597396}
 --- !u!4 &504812070
 Transform:
   m_ObjectHideFlags: 0
@@ -1119,7 +1119,7 @@ GameObject:
   - 4: {fileID: 889435273}
   m_Layer: 0
   m_Name: Obstacles
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1187,6 +1187,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75794a230eda84eb1b8fd207c6c138b8, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1046424400 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11489212, guid: 075b2cbb347e3824c9f3ffa37a4f6571,
+    type: 2}
+  m_PrefabInternal: {fileID: 232622386}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1048364853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,9 +1739,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1301920019}
+  - 65: {fileID: 1301920020}
   m_Layer: 0
   m_Name: Meta
-  m_TagString: Untagged
+  m_TagString: Meta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1753,6 +1760,18 @@ Transform:
   - {fileID: 1432713748}
   m_Father: {fileID: 1720759155}
   m_RootOrder: 0
+--- !u!65 &1301920020
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301920018}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1404535203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2717,6 +2736,12 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1990597396 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11404346, guid: 075b2cbb347e3824c9f3ffa37a4f6571,
+    type: 2}
+  m_PrefabInternal: {fileID: 232622386}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &2044634043
 GameObject:
   m_ObjectHideFlags: 0

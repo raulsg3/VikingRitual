@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class RainManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class RainManager : MonoBehaviour
     public GameObject goPlayer;
     public GameObject goMoebiusStrip;
     #endregion
+
+    public Button buttonExit;
+    public Button buttonRetry;
 
     private bool bStartAnim, bFinGame;
     private bool bJummping;
@@ -88,5 +92,21 @@ public class RainManager : MonoBehaviour
     {
         Debug.Log("Al fin delfin :" + End);
         bFinGame = End;
+    }
+
+    private void activateEndButtons()
+    {
+        buttonExit.gameObject.SetActive(true);
+        buttonRetry.gameObject.SetActive(true);
+    }
+
+    public void onVictory()
+    {
+        activateEndButtons();
+    }
+
+    public void onDefeat()
+    {
+        activateEndButtons();
     }
 }

@@ -155,7 +155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &198968264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -583,8 +583,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c4a112492830f4db491c073ae665341d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -607,15 +607,15 @@ RectTransform:
   m_GameObject: {fileID: 686421475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5201485, y: 2.5201495, z: 2.5201495}
   m_Children:
   - {fileID: 1817568741}
   m_Father: {fileID: 2060961259}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -241, y: 130}
-  m_SizeDelta: {x: 82, y: 42}
+  m_AnchoredPosition: {x: -316.47, y: 130}
+  m_SizeDelta: {x: 57, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &875486842
 GameObject:
@@ -1023,15 +1023,15 @@ RectTransform:
   m_GameObject: {fileID: 1274292095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5201485, y: 2.5201495, z: 2.5201495}
   m_Children:
   - {fileID: 198968264}
   m_Father: {fileID: 2060961259}
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -149, y: 130}
-  m_SizeDelta: {x: 95.6, y: 42}
+  m_AnchoredPosition: {x: -104.77, y: 130}
+  m_SizeDelta: {x: 56, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274292097
 MonoBehaviour:
@@ -1053,8 +1053,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c7b2e9ff86f654c0bbc98d51b169aece, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1278,7 +1278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1817568741
 RectTransform:
   m_ObjectHideFlags: 0

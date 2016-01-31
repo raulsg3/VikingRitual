@@ -16,6 +16,9 @@ TagManager:
   - ProvidenceFish
   - FateManager
   - ProvidenceManager
+  - FertilityAgujeroA
+  - FertilityAgujeroB
+  - FertilityAgujeroC
   layers:
   - Default
   - TransparentFX

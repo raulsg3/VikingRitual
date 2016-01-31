@@ -8,6 +8,9 @@ public class FertilityManager : MonoBehaviour
     public Text textSuccess;
     public Image imageFailure;
 
+    public Button buttonExit;
+    public Button buttonRetry;
+
     // Gameplay variables
     private int numRounds = 3;
     
@@ -21,9 +24,6 @@ public class FertilityManager : MonoBehaviour
 	public Button buttonA;
 	public Button buttonB;
 	public Button buttonC;
-
-	public Button buttonExit;
-	public Button buttonRetry;
 
 	public AudioClip audioA;
 	public AudioClip audioB;
@@ -218,10 +218,17 @@ public class FertilityManager : MonoBehaviour
 	public void OnButtonExit() {
 		audioManager.StopBGM ();
 		GameManager.instance.LoadMainScene ();
-	}
-    
+    }
+
     private void updateTextSuccess()
     {
         textSuccess.text = round + " / " + numRounds;
     }
+
+    private void activateEndButtons()
+    {
+        buttonExit.gameObject.SetActive(true);
+        buttonRetry.gameObject.SetActive(true);
+    }
+
 }

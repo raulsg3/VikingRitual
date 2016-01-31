@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2345184}
   - 54: {fileID: 5472462}
   - 114: {fileID: 11447372}
-  - 114: {fileID: 11481176}
+  - 114: {fileID: 11405760}
   m_Layer: 0
   m_Name: ProvidenceFish
   m_TagString: ProvidenceFish
@@ -81,6 +81,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &11405760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5f1c4028a6a404e90d4eb02b6b04cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 4.5
 --- !u!114 &11447372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,18 +105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilFall: 2
---- !u!114 &11481176
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ab3f1483b39fdb44989bd1edc99680b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 4.5
 --- !u!135 &13527262
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -150,6 +150,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: delay
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lifeTime
       value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []

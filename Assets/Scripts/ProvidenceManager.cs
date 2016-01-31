@@ -17,9 +17,6 @@ public class ProvidenceManager : MonoBehaviour
     // Fish prefab
     public Rigidbody fish;
 
-    // List of enemies
-    private List<ProvidenceFish> fishes = new List<ProvidenceFish>();
-
     // Use this for initialization
     void Awake ()
     {
@@ -38,7 +35,21 @@ public class ProvidenceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = (Camera.main.ScreenPointToRay(Input.mousePosition));
+            RaycastHit hit;
 
+            if (Physics.Raycast(ray, out hit))
+            {
+                Transform transformHit = hit.transform;
+
+                if (transformHit.tag == "ProvidenceFish") {
+                    fishSuccess();
+                    Destroy(transformHit.gameObject);
+                }
+            }
+        }
     }
     
     IEnumerator GenerateFishes()

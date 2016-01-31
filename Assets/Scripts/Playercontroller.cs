@@ -21,6 +21,9 @@ public class Playercontroller : MonoBehaviour
         rBody = gameObject.GetComponent<Rigidbody>();
 
         vVectorGround = new Vector3(0.001f, 0.001f, 0.001f);
+
+        rMngr = GameObject.FindGameObjectWithTag("RainManager").GetComponent<RainManager>();
+
     }
 
     // Update is called once per frame
@@ -36,13 +39,13 @@ public class Playercontroller : MonoBehaviour
     /// <returns></returns>
     public IEnumerator iJump(float force)
     {
-        Debug.Log("invocando el salto con: " + rBody.velocity.y + " - " + bFalling);
+        //Debug.Log("invocando el salto con: " + rBody.velocity.y + " - " + bFalling);
         if (!bFalling)
         {
             bFalling = true;
             _Motion.y = (force) * _gravity;
             rBody.velocity = _Motion;
-            Debug.Log("Saltando!?  " + rBody.velocity.y);
+            //Debug.Log("Saltando!?  " + rBody.velocity.y);
             yield return 0;
         }
     }
@@ -58,14 +61,18 @@ public class Playercontroller : MonoBehaviour
         {
             //Habilitamos los botones de reinicio nivel o exit scene
             value = -1.0f;
-
+            AudioManager.audioManagerInstance.PlaySound(rMngr.audioDerrota);
         }
         else
         {
             //Habilitamos el boton de exit
             value = 2.0f;
+            AudioManager.audioManagerInstance.PlaySound(rMngr.audioVictoria);
         }
         rMngr.setRainSliderValue(value);
+        rMngr.setEndGame(true);
+        //Detenemos la cinta de Moebius
+        GameObject.FindGameObjectWithTag("MoebiusStrip").GetComponent<Animator>().SetTrigger("StopTrigger");
     }
     /// <summary>
     /// 
@@ -76,11 +83,13 @@ public class Playercontroller : MonoBehaviour
         if (colision.gameObject.tag == "obstacle")
         {
             //condicion de derrota
+            Debug.Log("DERROTADO");
             OnDeath(true);
         }
 
         if (colision.gameObject.tag == "Meta")
         {
+            Debug.Log("Victoria");
             OnDeath(false);
         }
     }
@@ -90,7 +99,7 @@ public class Playercontroller : MonoBehaviour
     /// <param name="colision"></param>
     void OnCollisionEnter(Collision colision)
     {
-        Debug.Log("dentro de ontrgStay :" + colision.gameObject.tag);
+
         if (colision.gameObject.tag == "Ground")
         {
             bFalling = false;

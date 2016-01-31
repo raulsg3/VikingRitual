@@ -52,4 +52,13 @@ public class AudioManager : MonoBehaviour {
 		bgmSound.Stop ();
 	}
 
+    public void allStopAudioSource()
+    {
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach (AudioSource audioS in allAudioSources)
+        {
+            audioS.Stop();
+        }
+    }
+
 }

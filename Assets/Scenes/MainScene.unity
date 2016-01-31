@@ -1492,6 +1492,11 @@ MonoBehaviour:
   fertilitySlider: {fileID: 1383840812}
   fadeSlider: {fileID: 710585987}
   maxValuesForAtributes: 20
+  audioMain: {fileID: 8300000, guid: 12ac665a9f95f479f9e600f5a2d2818a, type: 3}
+  audioFate: {fileID: 8300000, guid: f5a37ece051eefc4bb4437281c3bc98b, type: 3}
+  audioFertility: {fileID: 8300000, guid: 331d9b82a844b46469704182c9a1bef1, type: 3}
+  audioRain: {fileID: 8300000, guid: 082c694e98712384cb43c92e04ae6558, type: 3}
+  audioProvidence: {fileID: 8300000, guid: df794a486cc379942b7e72a398b1f800, type: 3}
   age: 0
 --- !u!4 &616360050
 Transform:

@@ -9,8 +9,6 @@ public class RainManager : MonoBehaviour
     public float fTuneSpawnObj = 0.0f;
     public GameObject goPlayer;
     public GameObject goMoebiusStrip;
-    public AudioClip audioVictoria;
-    public AudioClip audioDerrota;
     #endregion
 
     private bool bStartAnim, bFinGame;

@@ -10,9 +10,12 @@ public class Playercontroller : MonoBehaviour
     public bool bFalling = false;
     private Rigidbody rBody;
     private Vector3 vVectorGround;
+	public AudioClip audioVictoria;
+	public AudioClip audioDerrota;
+	AudioManager audioManager;
     #endregion
 
-    private RainManager rMngr;
+	private RainManager rMngr;
 
     // Use this for initialization
     void Start()
@@ -22,6 +25,7 @@ public class Playercontroller : MonoBehaviour
 
         vVectorGround = new Vector3(0.001f, 0.001f, 0.001f);
 
+		audioManager = AudioManager.audioManagerInstance;
         rMngr = GameObject.FindGameObjectWithTag("RainManager").GetComponent<RainManager>();
 
     }
@@ -61,13 +65,13 @@ public class Playercontroller : MonoBehaviour
         {
             //Habilitamos los botones de reinicio nivel o exit scene
             value = -1.0f;
-            AudioManager.audioManagerInstance.PlaySound(rMngr.audioDerrota);
+			//audioManager.PlaySound (audioDerrota);
         }
         else
         {
             //Habilitamos el boton de exit
             value = 2.0f;
-            AudioManager.audioManagerInstance.PlaySound(rMngr.audioVictoria);
+			//audioManager.PlaySound (audioVictoria);
         }
         rMngr.setRainSliderValue(value);
         rMngr.setEndGame(true);

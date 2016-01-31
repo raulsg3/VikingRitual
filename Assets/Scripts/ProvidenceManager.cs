@@ -23,6 +23,9 @@ public class ProvidenceManager : MonoBehaviour
     // Fish prefab
     public Rigidbody fish;
 
+    // Scene name
+    private string strScene = "ProvidenceScene";
+
     // Use this for initialization
     void Awake ()
     {
@@ -109,4 +112,21 @@ public class ProvidenceManager : MonoBehaviour
     {
         textSuccess.text = numSuccess + " / " + totalSuccess;
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void OnButtonRetry()
+    {
+        GameManager.instance.Loadscene(strScene);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void OnButtonExit()
+    {
+        GameManager.instance.LoadMainScene();
+    }
+
 }

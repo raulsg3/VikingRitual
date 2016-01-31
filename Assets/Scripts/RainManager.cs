@@ -9,6 +9,8 @@ public class RainManager : MonoBehaviour
     public float fTuneSpawnObj = 0.0f;
     public GameObject goPlayer;
     public GameObject goMoebiusStrip;
+    public AudioClip audioVictoria;
+    public AudioClip audioDerrota;
     #endregion
 
     private bool bStartAnim, bFinGame;
@@ -21,7 +23,7 @@ public class RainManager : MonoBehaviour
         bStartAnim = false;
         bFinGame = false;
         bJummping = false;
-        fRainSliderValue = GameManager.instance.GetRain();
+        //fRainSliderValue = GameManager.instance.GetRain();
     }
 
     // Update is called once per frame
@@ -36,18 +38,9 @@ public class RainManager : MonoBehaviour
                 goMoebiusStrip.GetComponent<Animator>().SetTrigger("StartTrigger");
                 bStartAnim = true;
             }
-                
 
             bJummping = true;
             StartCoroutine(goPlayer.GetComponent<Playercontroller>().iJump(fJumpHeight));
-
-
-            //Debug.Log("Para por dios Carlos intenta de pararlo : " + bStartAnim + " " + bFinGame);
-            //if(bStartAnim && bFinGame)
-            //{
-            //    goMoebiusStrip.GetComponent<Animator>().SetTrigger("StopTrigger");
-            //}
-
         }
 
     }
@@ -62,7 +55,7 @@ public class RainManager : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public void ReStart()
+    public void OnButtonRetry()
     {
         GameManager.instance.SetAttributeValue(fRainSliderValue, GameManager.Scenes.RainScene);
         GameManager.instance.Loadscene(strScene);
@@ -71,8 +64,9 @@ public class RainManager : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public void ExitScene()
+    public void OnButtonExit()
     {
+        Debug.Log("Por dios saca este demonio de mi: ");
         GameManager.instance.SetAttributeValue(fRainSliderValue, GameManager.Scenes.RainScene);
         GameManager.instance.LoadMainScene();
     }

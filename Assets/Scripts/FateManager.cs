@@ -7,6 +7,8 @@ public class FateManager : MonoBehaviour
     // Gameplay variables
     public float waitTime = 2.0f;
     public int totalSuccess = 10;
+    public AudioClip audioVictoria;
+    public AudioClip audioDerrota;
 
     private int numSuccess = 0;
 
@@ -21,17 +23,19 @@ public class FateManager : MonoBehaviour
     // List of enemies
     private List<FateEnemy> enemies = new List<FateEnemy>();
 
+    private string strScene = "FateScene";
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
         // Initialize the list of spawn points
-        foreach (Transform child in spawnPointList) {
+        foreach (Transform child in spawnPointList)
+        {
             child.forward = Vector3.Normalize(ship.transform.position - child.position);
             spawnPoints.Add(child);
         }
     }
 
-	void Start ()
+    void Start()
     {
         StartCoroutine(GenerateEnemies());
     }
@@ -41,7 +45,7 @@ public class FateManager : MonoBehaviour
     {
 
     }
-    
+
     IEnumerator GenerateEnemies()
     {
         while (numSuccess < totalSuccess)
@@ -60,6 +64,23 @@ public class FateManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    public void OnButtonRetry()
+    {
+        GameManager.instance.Loadscene(strScene);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void OnButtonExit()
+    {
+        GameManager.instance.LoadMainScene();
+    }
+
+
     public void enemyDestroyed()
     {
         ++numSuccess;
@@ -67,6 +88,8 @@ public class FateManager : MonoBehaviour
         if (numSuccess >= totalSuccess)
         {
             Debug.Log("Success");
+            AudioManager.audioManagerInstance.PlaySound(audioVictoria);
+            GameManager.instance.SetAttributeValue(-1.0f, GameManager.Scenes.FateScene);
         }
     }
 }

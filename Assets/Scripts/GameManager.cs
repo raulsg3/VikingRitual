@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;   
-	public enum Scenes{MainScene, FertilityScene, RainScene, ProvidenceScene, FadeScene}
+	public enum Scenes{MainScene, FertilityScene, RainScene, ProvidenceScene, FateScene}
 	Scenes currentScene;
 	public Slider rainSlider;
 	public Slider providenceSlider;
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour {
 
 			}
 			break;
-		case Scenes.FadeScene:
+		case Scenes.FateScene:
 			if (fadeSlider.value + value <= maxValuesForAtributes) {
 				fadeValue += value;
 				fadeSlider.value = fadeValue;

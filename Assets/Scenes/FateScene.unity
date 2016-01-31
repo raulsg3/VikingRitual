@@ -4540,7 +4540,7 @@ Prefab:
         type: 3}
     - target: {fileID: 11427062, guid: a8e6f5ac704f2cf419102af184d288a0, type: 2}
       propertyPath: timeBetweenShots
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11427062, guid: a8e6f5ac704f2cf419102af184d288a0, type: 2}
       propertyPath: projectileSpeed

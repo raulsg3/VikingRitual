@@ -285,9 +285,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2130331240}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1292,12 +1292,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ageText: {fileID: 266607450}
-  ageSpeedFactor: 50
+  ageSpeedFactor: 30
   rainSlider: {fileID: 1086777732}
   providenceSlider: {fileID: 107605064}
   fertilitySlider: {fileID: 1383840812}
   fadeSlider: {fileID: 710585987}
-  maxValuesForAtributes: 10
+  maxValuesForAtributes: 20
   age: 0
 --- !u!4 &616360050
 Transform:
@@ -1369,9 +1369,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1780297910}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1433,7 +1433,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 651.1, y: 37.5}
+  m_AnchoredPosition: {x: 650, y: 37.5}
   m_SizeDelta: {x: 59, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &714923893
@@ -2159,9 +2159,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2031830061}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2854,9 +2854,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 793513779}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3522,7 +3522,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

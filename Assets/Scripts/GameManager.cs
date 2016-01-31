@@ -11,13 +11,13 @@ public class GameManager : MonoBehaviour {
 	Scenes currentScene;
 
     public Text ageText;
-    public float ageSpeedFactor = 5.0f;
+    public float ageSpeedFactor = 3.0f;
 
 	public Slider rainSlider;
 	public Slider providenceSlider;
 	public Slider fertilitySlider;
 	public Slider fadeSlider;
-	public float maxValuesForAtributes = 10f;
+	public float maxValuesForAtributes = 20f;
     
 	[SerializeField]
     public float age = 0;

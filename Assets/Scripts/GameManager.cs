@@ -9,31 +9,32 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;   
 	public enum Scenes{MainScene, FertilityScene, RainScene, ProvidenceScene, FateScene}
 	Scenes currentScene;
+
+    public Text ageText;
+    public float ageSpeedFactor = 5.0f;
+
 	public Slider rainSlider;
 	public Slider providenceSlider;
 	public Slider fertilitySlider;
 	public Slider fadeSlider;
 	public float maxValuesForAtributes = 10f;
-
-
-
+    
 	[SerializeField]
-	int age = 0;
-	float fertilityValue = 10f;
+    public float age = 0;
+    float fertilityValue = 10f;
 	float rainValue = 10f;
 	float providenceValue = 10f;
 	float fadeValue = 10f;
 
-
 	//Awake is always called before any Start functions
 	void Awake()
 	{
-			//Check if instance already exists
+		//Check if instance already exists
 		if (instance == null){
 			instance = this;
 		}
 
-			//If instance already exists and it's not this:
+		//If instance already exists and it's not this:
 		else if (instance != this){
 			Destroy(gameObject);    
 		}
@@ -42,13 +43,17 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start(){
+
+	}
+
+	void Update(){
+        age += Time.deltaTime * ageSpeedFactor;
+        ageText.text = ((int)age / 60).ToString();
 	}
 
 	void InitGame(){
-
-
+        
 	}
-
 
 	public void Loadscene(string SceneName){
 		

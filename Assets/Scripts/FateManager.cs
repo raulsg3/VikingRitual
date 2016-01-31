@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class FateManager : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class FateManager : MonoBehaviour
     public AudioClip audioDerrota;
 
     private int numSuccess = 0;
+
+    // User feedback
+    public Text textSuccess;
+    public Image imageFailure;
 
     // List of spawn points
     public Transform spawnPointList;
@@ -38,6 +43,9 @@ public class FateManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(GenerateEnemies());
+
+        //Feedback
+        updateTextSuccess();
     }
 
     // Update is called once per frame
@@ -84,6 +92,7 @@ public class FateManager : MonoBehaviour
     public void enemyDestroyed()
     {
         ++numSuccess;
+        updateTextSuccess();
 
         if (numSuccess >= totalSuccess)
         {
@@ -91,5 +100,10 @@ public class FateManager : MonoBehaviour
             AudioManager.audioManagerInstance.PlaySound(audioVictoria);
             GameManager.instance.SetAttributeValue(-1.0f, GameManager.Scenes.FateScene);
         }
+    }
+
+    private void updateTextSuccess()
+    {
+        textSuccess.text = numSuccess + " / " + totalSuccess;
     }
 }

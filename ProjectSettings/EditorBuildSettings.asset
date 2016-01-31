@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
   - enabled: 1
     path: Assets/Scenes/RainScene.unity
+  - enabled: 1
+    path: Assets/Scenes/ProvidenceScene.unity

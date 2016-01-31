@@ -684,6 +684,18 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 53
       objectReference: {fileID: 0}
+    - target: {fileID: 11481746, guid: d93410c37bec65d44912ace936d71609, type: 2}
+      propertyPath: m_Color.r
+      value: 0.10196079
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481746, guid: d93410c37bec65d44912ace936d71609, type: 2}
+      propertyPath: m_Color.g
+      value: 0.10196079
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481746, guid: d93410c37bec65d44912ace936d71609, type: 2}
+      propertyPath: m_Color.b
+      value: 0.10196079
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d93410c37bec65d44912ace936d71609, type: 2}
   m_IsPrefabParent: 0
@@ -1109,7 +1121,7 @@ GameObject:
   - 114: {fileID: 389691845}
   m_Layer: 0
   m_Name: FateManager
-  m_TagString: Untagged
+  m_TagString: FateManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

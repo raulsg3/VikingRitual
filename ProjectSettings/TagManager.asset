@@ -14,6 +14,7 @@ TagManager:
   - RainManager
   - MoebiusStrip
   - ProvidenceFish
+  - FateManager
   layers:
   - Default
   - TransparentFX

@@ -2,13 +2,21 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class FertilityManager : MonoBehaviour {
-	int [] num = new int [10]; 
+public class FertilityManager : MonoBehaviour
+{
+    // User feedback
+    public Text textSuccess;
+    public Image imageFailure;
+
+    // Gameplay variables
+    private int numRounds = 3;
+    
+    int[] num = new int [10]; 
 	int size;   // size of the array
 	int index;  // index of the player in the array 
 	int round;
 	bool status;
-	bool oneFail;
+	bool oneFail = false;
 
 	public Button buttonA;
 	public Button buttonB;
@@ -54,15 +62,17 @@ public class FertilityManager : MonoBehaviour {
 		audioManager.StopSound();
 		audioManager.PlayBGM(audioBackground);
 
-		// buttonExit.interactable = false;
-		// buttonRetry.interactable = false;
-	}
+        // buttonExit.interactable = false;
+        // buttonRetry.interactable = false;
 
-
+        //Feedback
+        updateTextSuccess();
+    }
+    
 	void Update () {
 		if (!status) {
 			status = true;
-			if (round < 4) {
+			if (round < numRounds + 1) {
 				addRandom ();
 				playCPU (0);
 			} else {
@@ -163,6 +173,7 @@ public class FertilityManager : MonoBehaviour {
 		} else {
 			Instantiate (fxPrefab, spawnOneFail.position, spawnOneFail.rotation);
 			oneFail = true;
+            imageFailure.gameObject.SetActive(true);
 		}
 	}
 
@@ -194,8 +205,7 @@ public class FertilityManager : MonoBehaviour {
 			endFail();
 		}
 	}
-
-
+    
 	// ACTIVE MENU
 	public void activeMenu(){
 		// buttonExit.gameObject.SetActive (true);
@@ -209,4 +219,9 @@ public class FertilityManager : MonoBehaviour {
 		audioManager.StopBGM ();
 		GameManager.instance.LoadMainScene ();
 	}
+    
+    private void updateTextSuccess()
+    {
+        textSuccess.text = round + " / " + numRounds;
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ProvidenceManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class ProvidenceManager : MonoBehaviour
     public int totalSuccess = 10;
 
     private int numSuccess = 0;
+
+    // User feedback
+    public Text textSuccess;
+    public Image imageFailure;
 
     // List of spawn points
     public Transform spawnPointList;
@@ -30,6 +35,9 @@ public class ProvidenceManager : MonoBehaviour
 	void Start ()
     {
         StartCoroutine(GenerateFishes());
+
+        //Feedback
+        updateTextSuccess();
     }
 
     // Update is called once per frame
@@ -75,10 +83,16 @@ public class ProvidenceManager : MonoBehaviour
     public void fishSuccess()
     {
         ++numSuccess;
+        updateTextSuccess();
 
         if (numSuccess >= totalSuccess)
         {
             Debug.Log("Success");
         }
+    }
+
+    private void updateTextSuccess()
+    {
+        textSuccess.text = numSuccess + " / " + totalSuccess;
     }
 }

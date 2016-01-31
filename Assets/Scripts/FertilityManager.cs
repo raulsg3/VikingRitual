@@ -68,8 +68,31 @@ public class FertilityManager : MonoBehaviour {
 			} else {
 				endGood();
 			}
-		} 
-	}
+		}
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = (Camera.main.ScreenPointToRay(Input.mousePosition));
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Transform transformHit = hit.transform;
+                
+                switch (transformHit.tag) {
+                    case "FertilityAgujeroA":
+                        OnButtonA();
+                        break;
+                    case "FertilityAgujeroB":
+                        OnButtonB();
+                        break;
+                    case "FertilityAgujeroC":
+                        OnButtonC();
+                        break;
+                }
+            }
+        }
+    }
 
 	// Play the array notes
 	public void playCPU(int x){		
